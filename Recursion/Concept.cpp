@@ -1,8 +1,11 @@
 //  Recursion => When a function calls itself indefinitely until a specified condition is fulfilled.
 
+
 // Base Condition
 /* It is the condition that is written in a recursive function in order for it to get completed and not to run infinitely. 
 After encountering the base condition, the function terminates and returns back to its parent function simultaneously. 
+
+
 
 Example =
 > Pseudocode 
