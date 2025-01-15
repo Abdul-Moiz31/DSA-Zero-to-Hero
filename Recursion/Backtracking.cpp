@@ -1,5 +1,7 @@
 // ------------------------ Backtracking __________________
 // Doing the same thing were doing in recursion but the opther way round
+// We start with the solution and then we backtrack to find all the solutions
+
 
 
 #include  <bits/stdc++.h>
