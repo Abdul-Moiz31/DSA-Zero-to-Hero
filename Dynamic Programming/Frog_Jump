@@ -1,0 +1,30 @@
+
+
+/*Given an integer array height[] where height[i] represents the height of the i-th stair, a frog starts from the first stair and wants 
+to reach the top. From any stair i, the frog has two options: it can either jump to the (i+1)th stair or the (i+2)th stair. The cost of a jump 
+is the absolute difference in height between the two stairs. Determine the minimum total cost required for the frog to reach the top.*/
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int minCost(vector<int>& height) {
+    int n = height.size(); // Get the size of the height array
+    if (n == 0) return 0;  // If there's no height, the cost is 0
+    
+    vector<int> dp(n, 0); // Initialize the dp array with zeros
+    
+    dp[0] = 0; // Base case: no cost to reach the first step
+    dp[1] = abs(height[1] - height[0]); // Base case: cost to move from the first to the second step
+    
+    for (int i = 2; i < n; ++i) {
+        int a = abs(height[i] - height[i - 1]); // Cost to move from the i-th step to the (i-1)-th step
+        int b = abs(height[i] - height[i - 2]); // Cost to move from the i-th step to the (i-2)-th step
+        int fs = dp[i - 1] + a ;// Cost if jumping from the previous step
+        int as = dp[i - 2] + b;// Cost if jumping from two steps before
+        dp[i] = min(fs, as); // Take the minimum of the two options
+    }
+    
+    return dp[n - 1]; // Return the minimum cost to reach the last step
+}
